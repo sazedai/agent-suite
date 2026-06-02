@@ -32,13 +32,20 @@ class Lead(Base):
     __tablename__ = "leads"
 
     id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
-    name: Mapped[str] = mapped_column(String(256), default="")
+    contact_name: Mapped[str] = mapped_column(String(256), default="")
     email: Mapped[str] = mapped_column(String(256), default="")
     company: Mapped[str] = mapped_column(String(256), default="")
+    website: Mapped[str] = mapped_column(String(512), default="")
     phone: Mapped[str] = mapped_column(String(64), default="")
+    linkedin_url: Mapped[str] = mapped_column(String(512), default="")
     source: Mapped[str] = mapped_column(String(128), default="")
+    industry: Mapped[str] = mapped_column(String(128), default="")
+    company_size: Mapped[str] = mapped_column(String(64), default="")
     score: Mapped[float] = mapped_column(Float, default=0.0)
     enriched: Mapped[str] = mapped_column(String(1), default="N")
+    dedup_key: Mapped[str] = mapped_column(String(512), default="")
+    data_quality: Mapped[float] = mapped_column(Float, default=0.0)
+    tags: Mapped[str] = mapped_column(Text, default="")
     raw_data: Mapped[str] = mapped_column(Text, default="")
     created_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.now())
 
