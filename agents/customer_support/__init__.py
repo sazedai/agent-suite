@@ -7,7 +7,7 @@ FAQ management, and support analytics.
 from __future__ import annotations
 
 from crewai import Agent, Task, Crew, Process
-from core.llm import get_llm()
+from core.llm import get_llm
 
 
 def create_support_agent() -> Agent:
